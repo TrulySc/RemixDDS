@@ -1,0 +1,282 @@
+:root {
+  --hev-bg: #050505;
+  --hev-bg-panel: #101010;
+  --hev-border: #ff9a1f;
+  --hev-border-soft: #ffb347;
+  --hev-text: #f5f0e6;
+  --hev-text-soft: #d3c9b8;
+  --hev-accent: #ffb347;
+  --hev-accent-strong: #ff9a1f;
+  --hev-danger: #ff3b3b;
+  --hev-ok: #8dff3b;
+  --hev-font: "JetBrains Mono", "Fira Code", "Cousine", "Cascadia Code", monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(circle at top, #151515 0, #050505 55%, #000000 100%);
+  color: var(--hev-text);
+  font-family: var(--hev-font);
+}
+
+/* CRT overlay */
+.crt-overlay {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.03),
+    rgba(255,255,255,0.03) 1px,
+    rgba(0,0,0,0.06) 1px,
+    rgba(0,0,0,0.06) 3px
+  );
+  mix-blend-mode: soft-light;
+  opacity: 0.27;
+  z-index: 1;
+}
+
+/* Header */
+.hev-header {
+  position: relative;
+  z-index: 2;
+  border-bottom: 2px solid var(--hev-border);
+  box-shadow: 0 0 30px rgba(255,153,31,0.25);
+  background: linear-gradient(135deg, #1a0d00, #050505);
+  padding: 0.75rem 1.5rem 0.25rem;
+}
+
+.hev-header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.hev-logo-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.hev-logo-mark {
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  font-size: 1.1rem;
+  color: var(--hev-accent-strong);
+  text-transform: uppercase;
+}
+
+.hev-logo-sub {
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--hev-text-soft);
+}
+
+.hev-status-block {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: var(--hev-text-soft);
+}
+
+.hev-dot {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 999px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.8);
+}
+
+.hev-ok {
+  background: radial-gradient(circle at 30% 25%, #ffffff, var(--hev-ok));
+  box-shadow: 0 0 10px rgba(141,255,59,0.85);
+}
+
+.hev-status-text {
+  letter-spacing: 0.2em;
+}
+
+/* Nav */
+.hev-nav {
+  margin-top: 0.4rem;
+  padding-top: 0.4rem;
+  border-top: 1px solid rgba(255,153,31,0.4);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+}
+
+.hev-nav a {
+  color: var(--hev-text-soft);
+  text-decoration: none;
+  letter-spacing: 0.16em;
+  position: relative;
+  padding-bottom: 0.1rem;
+}
+
+.hev-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background: linear-gradient(90deg, var(--hev-border), transparent);
+  transition: width 0.18s ease-out;
+}
+
+.hev-nav a:hover::after {
+  width: 100%;
+}
+
+/* Main content */
+.hev-main {
+  position: relative;
+  z-index: 2;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.hev-console {
+  max-width: 920px;
+  width: 100%;
+  background: rgba(5,5,5,0.92);
+  border-radius: 8px;
+  border: 1px solid rgba(255,153,31,0.35);
+  box-shadow:
+    0 0 0 1px rgba(255,153,31,0.11),
+    0 0 45px rgba(0,0,0,0.9);
+  padding: 1.25rem 1.5rem 1.5rem;
+  backdrop-filter: blur(3px);
+}
+
+.hev-console h1,
+.hev-console h2,
+.hev-console h3 {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.hev-console h1 {
+  font-size: 1.3rem;
+  margin-top: 0;
+  color: var(--hev-accent-strong);
+}
+
+.hev-console h2 {
+  font-size: 0.95rem;
+  color: var(--hev-accent);
+  margin-top: 1.6rem;
+  border-bottom: 1px solid rgba(255,153,31,0.35);
+  padding-bottom: 0.35rem;
+}
+
+.hev-console h3 {
+  font-size: 0.8rem;
+  color: var(--hev-text-soft);
+  margin-top: 1.1rem;
+}
+
+.hev-console p {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--hev-text-soft);
+}
+
+.hev-console code {
+  font-family: var(--hev-font);
+  background: #141414;
+  padding: 0.1rem 0.3rem;
+  border-radius: 3px;
+  font-size: 0.8em;
+  border: 1px solid rgba(255,153,31,0.2);
+}
+
+.hev-console pre {
+  background: #0b0b0b;
+  padding: 0.6rem 0.75rem;
+  border-radius: 4px;
+  border: 1px solid rgba(255,153,31,0.35);
+  font-size: 0.75rem;
+  overflow-x: auto;
+}
+
+.hev-console pre code {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.hev-console table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.75rem 0;
+  font-size: 0.78rem;
+}
+
+.hev-console th,
+.hev-console td {
+  border: 1px solid rgba(255,153,31,0.35);
+  padding: 0.3rem 0.4rem;
+}
+
+.hev-console th {
+  background: #1b1005;
+  color: var(--hev-accent);
+}
+
+.hev-console tr:nth-child(even) td {
+  background: #0b0b0b;
+}
+
+.hev-console a {
+  color: var(--hev-accent);
+  text-decoration: none;
+}
+
+.hev-console a:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+.hev-footer {
+  position: relative;
+  z-index: 2;
+  padding: 0.75rem 1.5rem 1.5rem;
+  font-size: 0.7rem;
+  color: var(--hev-text-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  opacity: 0.8;
+}
+
+.hev-footer-sub {
+  color: #777;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hev-main {
+    padding: 0.75rem;
+  }
+  .hev-console {
+    padding: 1rem;
+  }
+  .hev-header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+  }
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ page.title | default: site.title }}</title>
+    <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+  </head>
+  <body>
+    <div class="crt-overlay"></div>
+    <header class="hev-header">
+      <div class="hev-header-inner">
+        <div class="hev-logo-block">
+          <div class="hev-logo-mark">H.E.V</div>
+          <div class="hev-logo-sub">MARK IV TEXTURE CONVERSION SUBSYSTEM</div>
+        </div>
+        <div class="hev-status-block">
+          <span class="hev-dot hev-ok"></span>
+          <span class="hev-status-text">SYSTEM ONLINE</span>
+        </div>
+      </div>
+      <nav class="hev-nav">
+        <a href="{{ '/' | relative_url }}">HOME</a>
+        <a href="{{ '/guide/installation.html' | relative_url }}">INSTALLATION</a>
+        <a href="{{ '/guide/usage.html' | relative_url }}">USAGE</a>
+        <a href="{{ '/guide/formats.html' | relative_url }}">FORMATS</a>
+        <a href="https://github.com" target="_blank" rel="noreferrer">GITHUB</a>
+      </nav>
+    </header>
+
+    <main class="hev-main">
+      <article class="hev-console">
+        {{ content }}
+      </article>
+    </main>
+
+    <footer class="hev-footer">
+      <div>H.E.V MARK IV SUIT &mdash; TEXTURE CONVERSION SUBSYSTEM</div>
+      <div class="hev-footer-sub">Not affiliated with Valve, Black Mesa, or NVIDIA.</div>
+    </footer>
+  </body>
+</html>
